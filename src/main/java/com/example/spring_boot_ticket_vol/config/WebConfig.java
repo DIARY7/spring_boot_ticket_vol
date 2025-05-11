@@ -3,6 +3,7 @@ package com.example.spring_boot_ticket_vol.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
@@ -15,6 +16,8 @@ public class WebConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(authIntercepter)
                 .addPathPatterns("/**")  // Intercepts all URLs
-                .excludePathPatterns("/login", "/register", "/css/**", "/js/**","/api/**"); // Allow login page
+                .excludePathPatterns("/login", "/register", "/css/**", "/js/**","/api/**","/assets/**"); // Allow login page
     }
+
+    
 }

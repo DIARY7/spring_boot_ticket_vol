@@ -30,9 +30,8 @@ public class UtilisateurController {
     }
 
     @GetMapping("/login")
-    public String loginFOrm(){
-        return "index";
+    public String loginForm(){
+        return "login";
     }
-
 
 }
