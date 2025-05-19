@@ -56,7 +56,6 @@ public class ReservationController {
         if (placeService.placeIsAvailable(reservation.getPlaceVol().getVol().getId(),reservation.getPlaceVol().getPlace().getTypeSiege().getId(),reservation.getNbPlaces())){
             // do reservation
 
-
         }else {
             Place placeDispo = placeService.findPlaceByIdVolAndTypeSiege(reservation.getPlaceVol().getVol().getId(),reservation.getPlaceVol().getPlace().getTypeSiege().getId());
             result.rejectValue("nbPlace","error.nbPlace","Nombre de place insuffisant pour ce vol place restant "+placeDispo.getNombre());

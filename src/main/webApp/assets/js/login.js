@@ -39,64 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 600);
     });
     
-    // Form validation
-    loginForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        let isValid = true;
-        
-        // Reset errors
-        emailError.textContent = '';
-        emailError.classList.remove('show');
-        passwordError.textContent = '';
-        passwordError.classList.remove('show');
-        
-        // Validate email
-        if (!emailInput.value) {
-            showError(emailError, 'Le pseudo est requis');
-            isValid = false;
-        } 
-        
-        // Validate password
-        if (!passwordInput.value) {
-            showError(passwordError, 'Le mot de passe est requis');
-            isValid = false;
-        }
-        
-        if (isValid) {
-            // Show loading state
-            loginButton.classList.add('loading');
-            
-            // Simulate API call
-            setTimeout(function() {
-                loginButton.classList.remove('loading');
-                
-                // Save credentials if "Remember me" is checked
-                if (rememberCheckbox.checked) {
-                    localStorage.setItem('savedEmail', emailInput.value);
-                    // In a real app, never store passwords in localStorage
-                    // This is just for demonstration
-                    localStorage.setItem('hasPassword', 'true');
-                } else {
-                    localStorage.removeItem('savedEmail');
-                    localStorage.removeItem('hasPassword');
-                }
-                
-                // Show success message
-                successMessage.classList.add('show');
-                
-                // Redirect after 2 seconds (in a real app, this would go to the dashboard)
-                setTimeout(function() {
-                    // window.location.href = '/dashboard';
-                    // For demo, just reset the form
-                    successMessage.classList.remove('show');
-                    loginForm.reset();
-                }, 2000);
-            }, 1500);
-        }
-        e.target.submit();
-    });
-    
     // Input animations
     const inputs = document.querySelectorAll('.input-group input');
     
@@ -117,18 +59,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     
-    function showError(element, message) {
-        element.textContent = message;
-        element.classList.add('show');
+    // function showError(element, message) {
+    //     element.textContent = message;
+    //     element.classList.add('show');
         
-        // Add shake animation to the parent input
-        const inputGroup = element.closest('.input-group');
-        inputGroup.classList.add('shake');
+    //     // Add shake animation to the parent input
+    //     const inputGroup = element.closest('.input-group');
+    //     inputGroup.classList.add('shake');
         
-        setTimeout(() => {
-            inputGroup.classList.remove('shake');
-        }, 500);
-    }
+    //     setTimeout(() => {
+    //         inputGroup.classList.remove('shake');
+    //     }, 500);
+    // }
     
     function checkSavedCredentials() {
         const savedEmail = localStorage.getItem('savedEmail');

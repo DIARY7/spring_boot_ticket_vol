@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html;charset=UTF-8" %>
+<% String error = (String) request.getAttribute("loginError"); %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,16 +17,16 @@
                 <p>Bienvenue ! Veuillez vous connecter pour continuer.</p>
             </div>
             
-            <form id="login-form" method="post" action="/login">
+            <form id="login-form" method="post" action="/login" <% if(error!=null){ %> style="animation: animeshake 1s cubic-bezier(.36,.07,.19,.97) both;" <% } %> >
                 <div class="input-group">
-                    <input type="text" id="email" name="pseudo" required>
+                    <input type="text" id="email" name="pseudo" value="jdupont" required>
                     <label for="email">Pseudo</label>
                     <div class="line"></div>
                     <div class="error-message" id="email-error"></div>
                 </div>
                 
                 <div class="input-group">
-                    <input type="password" id="password" required name="motDePasse">
+                    <input type="password" id="password" required value="password123" name="motDePasse">
                     <label for="password" >Mot de passe</label>
                     <div class="line"></div>
                     <button type="button" id="toggle-password" class="toggle-password">
@@ -38,50 +40,23 @@
                     <div class="error-message" id="password-error"></div>
                 </div>
                 
-                <div class="options-group">
-                    <div class="remember-me">
-                        <input type="checkbox" id="remember" class="custom-checkbox">
-                        <label for="remember">Se souvenir de moi</label>
-                    </div>
-                    <a href="#" class="forgot-password">Mot de passe oublié ?</a>
-                </div>
+                
                 
                 <button type="submit" id="login-button" class="login-button">
                     <span class="button-text">Se connecter</span>
                     <span class="button-loader"></span>
                 </button>
-                
+
+                <% if(error!=null){ %>
+                    <p class="error-p"><%= error %> </p>
+                <% } %>
+
                 <div class="divider">
-                    <span>ou</span>
+                    <span>💻</span>
                 </div>
                 
-                <div class="social-login">
-                    <button type="button" class="social-button google">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                            <path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/>
-                        </svg>
-                        Google
-                    </button>
-                    <button type="button" class="social-button facebook">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                            <path d="M20.9,2H3.1C2.5,2,2,2.5,2,3.1v17.8C2,21.5,2.5,22,3.1,22h9.6v-7.7h-2.6v-3h2.6V9.2c0-2.6,1.6-4,3.9-4c1.1,0,2.1,0.1,2.3,0.1v2.7h-1.6c-1.3,0-1.5,0.6-1.5,1.5v1.9h3l-0.4,3h-2.6V22h5.1c0.6,0,1.1-0.5,1.1-1.1V3.1C22,2.5,21.5,2,20.9,2z"/>
-                        </svg>
-                        Facebook
-                    </button>
-                </div>
-                
-                <div class="signup-link">
-                    Pas encore de compte ? <a href="#">S'inscrire</a>
-                </div>
             </form>
             
-            <div id="success-message" class="success-message">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-                <h2>Connexion réussie !</h2>
-                <p>Vous allez être redirigé...</p>
-            </div>
         </div>
         
         <div class="background">

@@ -1,5 +1,6 @@
 package com.example.spring_boot_ticket_vol.service;
 import lombok.AllArgsConstructor;
+
 import org.springframework.stereotype.Service;
 
 import com.example.spring_boot_ticket_vol.entity.Parametres;
@@ -26,5 +27,8 @@ public class ParametresService {
 
     public Parametres updateParametres(Parametres parametres) {
          return parametresRepository.save(parametres);
+    }
+
+    public void updateAllParametres(double delaiReservation,double delaiAnnulation,double reductionEnfant ){
     }
 }
