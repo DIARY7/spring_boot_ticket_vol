@@ -17,6 +17,10 @@ public class ReservationService {
     private final ReservationRepository reservationRepository;
     private final PromotionService promotionService;
 
+    public List<Reservation> getAllReservation(){
+        return reservationRepository.findAll();
+    }
+
     public List<Reservation> getReservationByIdUtilisateur(Utilisateur utilisateur) {
         return reservationRepository.findByUtilisateur(utilisateur);
     }

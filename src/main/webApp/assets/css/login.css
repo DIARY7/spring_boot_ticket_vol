@@ -1,0 +1,520 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary-color: #6c63ff;
+    --primary-light: #8b85ff;
+    --primary-dark: #5046e5;
+    --text-color: #333;
+    --text-light: #666;
+    --background: #f9fafb;
+    --error-color: #e53935;
+    --success-color: #43a047;
+    --input-bg: #fff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --animation-duration: 0.3s;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+    z-index: 1;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+    animation: float 15s infinite ease-in-out;
+}
+
+.shape:nth-child(1) {
+    width: 500px;
+    height: 500px;
+    top: -250px;
+    right: -100px;
+    opacity: 0.3;
+    animation-delay: 0s;
+}
+
+.shape:nth-child(2) {
+    width: 400px;
+    height: 400px;
+    bottom: -200px;
+    left: -150px;
+    opacity: 0.2;
+    animation-delay: -5s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-20px) scale(1.05);
+    }
+}
+
+.form-container {
+    background-color: var(--input-bg);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    padding: 40px;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeIn 0.6s forwards ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.form-header p {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--text-color);
+    transition: all var(--animation-duration) ease;
+}
+
+.input-group label {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    font-size: 16px;
+    color: var(--text-light);
+    pointer-events: none;
+    transition: all var(--animation-duration) ease;
+}
+
+.input-group .line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ddd;
+}
+
+.input-group .line::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all var(--animation-duration) ease;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+    top: -12px;
+    font-size: 12px;
+    color: var(--primary-color);
+}
+
+.input-group input:focus ~ .line::after,
+.input-group input:valid ~ .line::after {
+    width: 100%;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-password svg {
+    fill: var(--text-light);
+    transition: fill var(--animation-duration) ease;
+}
+
+.toggle-password:hover svg {
+    fill: var(--primary-color);
+}
+
+.eye-open, .eye-closed {
+    transition: all var(--animation-duration) ease;
+}
+
+.eye-closed {
+    display: none;
+}
+
+.options-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.custom-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-right: 8px;
+    position: relative;
+    cursor: pointer;
+    transition: all var(--animation-duration) ease;
+}
+
+.custom-checkbox:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.custom-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.forgot-password {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--animation-duration) ease;
+}
+
+.forgot-password:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.login-button {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--animation-duration) ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+.button-text, .button-loader {
+    transition: all var(--animation-duration) ease;
+}
+
+.button-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s infinite linear;
+    opacity: 0;
+    visibility: hidden;
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.login-button.loading .button-text {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.login-button.loading .button-loader {
+    opacity: 1;
+    visibility: visible;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: #ddd;
+}
+
+.divider span {
+    padding: 0 15px;
+}
+
+.social-login {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.social-button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--animation-duration) ease;
+}
+
+.social-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+.social-button.google svg {
+    fill: #DB4437;
+}
+
+.social-button.facebook svg {
+    fill: #4267B2;
+}
+
+.social-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.signup-link {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.signup-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--animation-duration) ease;
+}
+
+.signup-link a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 12px;
+    margin-top: 5px;
+    height: 0;
+    overflow: hidden;
+    transition: height var(--animation-duration) ease;
+}
+
+.error-message.show {
+    height: 20px;
+}
+
+.success-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    z-index: 10;
+}
+
+.success-message.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.success-message svg {
+    fill: var(--success-color);
+    margin-bottom: 20px;
+    animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.success-message h2 {
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.success-message p {
+    color: var(--text-light);
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 30px 20px;
+    }
+    
+    .social-login {
+        flex-direction: column;
+    }
+    
+    .options-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+/* Animation for form elements */
+#login-form > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards ease-out;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes animeshake {
+    10%, 90% {
+        transform: translateX(-1px);
+    }
+    20%, 80% {
+        transform: translateX(2px);
+    }
+    30%, 50%, 70% {
+        transform: translateX(-4px);
+    }
+    40%, 60% {
+        transform: translateX(4px);
+    }
+}
+.error-p{
+    color: var(--error-color);
+    font-size: 15px;
+    margin-top: 15px;
+    text-align: center;    
+    transition: height var(--animation-duration) ease;
+}
+
+
+#login-form > *:nth-child(1) { animation-delay: 0.1s; }
+#login-form > *:nth-child(2) { animation-delay: 0.2s; }
+#login-form > *:nth-child(3) { animation-delay: 0.3s; }
+#login-form > *:nth-child(4) { animation-delay: 0.4s; }
+#login-form > *:nth-child(5) { animation-delay: 0.5s; }
+#login-form > *:nth-child(6) { animation-delay: 0.6s; }
+#login-form > *:nth-child(7) { animation-delay: 0.7s; }

@@ -11,7 +11,7 @@ public interface UtilisateurRepository  extends JpaRepository<Utilisateur, Integ
 
     @Query(value = "SELECT * FROM utilisateur " +
             "WHERE pseudo = :pseudo " +
-            "AND mot_de_passe = :motDePasse "
+            "AND mot_de_passe = :motDePasse and role = 'admin'"
             ,nativeQuery = true)
     Utilisateur loginUTilisateur(String pseudo,String motDePasse);
 }

@@ -23,16 +23,15 @@ public class UtilisateurController {
             session.setAttribute("utilisateur", utilisateur);
         }
         else {
-            model.addAttribute("loginError", "Invalid username or password");
-            return "index";
+            model.addAttribute("loginError", " Pseudo ou mot de passe invalide");
+            return "login";
         }
         return "redirect:/parametres/";
     }
 
     @GetMapping("/login")
-    public String loginFOrm(){
-        return "index";
+    public String loginForm(){
+        return "login";
     }
-
 
 }
