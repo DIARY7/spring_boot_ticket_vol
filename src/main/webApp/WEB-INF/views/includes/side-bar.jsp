@@ -6,19 +6,21 @@
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 300 300"
-            width="100"
-            height="100"
+            width="150"
+            height="150"
+            style="width: 50px ; height: 50px;" 
           >
-            <g fill="#00FF00">
-              <!-- Rectangle central vertical -->
-              <rect x="140" y="40" width="80" height="280" />
-              <!-- Rectangle central horizontal -->
-              <rect x="40" y="140" width="280" height="80" />
+            <!-- A stylized paper airplane for "Air" -->
+            <g fill="#0d6efd">
+              <polygon points="50,150 250,50 200,140 150,140 190,210" />
             </g>
+            <!-- Trail line (track) -->
+            <path d="M 50 150 Q 120 220, 250 250" stroke="#0d6efd" stroke-width="8" fill="none" stroke-linecap="round"/>
           </svg>
         </span>
-        <span class="app-brand-text demo menu-text fw-bolder ms-2">PHARMACIE</span>
+        <span class="app-brand-text demo menu-text fw-bolder ms-2">AirTrack</span>
       </a>
+      
       <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
         <i class="bx bx-chevron-left bx-sm align-middle"></i>
       </a>
@@ -35,25 +37,21 @@
         </a>
       </li> -->
 
-      <li class="menu-header small text-uppercase">
-        <span class="menu-header-text">CRUD</span>
-      </li>
-      
       <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-          <div data-i18n="Authentications">Reservation</div>
+        <a href="/reservation/" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-list-ul"></i>
+          <div data-i18n="Authentications">Reservations</div>
         </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="/produit/form" class="menu-link">
-              <div data-i18n="Basic">Liste</div>
-            </a>
-          </li>
-        </ul>
       </li>
 
       <li class="menu-item">
+        <a href="/parametres/" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-cog"></i>
+          <div data-i18n="Authentications">Parametres</div>
+        </a>
+      </li>
+
+      <!-- <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-collection"></i>
           <div data-i18n="Authentications">Listes</div>
@@ -92,67 +90,7 @@
           </li>
 
         </ul>
-      </li>
-
-      <li class="menu-header small text-uppercase">
-        <span class="menu-header-text">Vente</span>
-      </li>
-
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-collection"></i>
-          <div data-i18n="Authentications">Ventes</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="/vente" class="menu-link">
-              <div data-i18n="Basic">Liste</div>
-            </a>
-          </li>
-
-          <li class="menu-item">
-            <a href="/vente/form" class="menu-link">
-              <div data-i18n="Basic">insertion</div>
-            </a>
-          </li>
-
-          <li class="menu-item">
-            <a href="/vendeur_commission" class="menu-link">
-              <div data-i18n="Basic">Vendeur-commission</div>
-            </a>
-          </li>
-        </ul>
-
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="/client" class="menu-link">
-              <div data-i18n="Basic">Client</div>
-            </a>
-          </li>
-        </ul>
-        
-        <li class="menu-header small text-uppercase">
-          <span class="menu-header-text">Conseil</span>
-        </li>
-  
-        <li class="menu-item">
-          <a href="javascript:void(0);" class="menu-link menu-toggle">
-            <i class="menu-icon tf-icons bx bx-collection"></i>
-            <div data-i18n="Authentications">Conseil</div>
-          </a>
-          <ul class="menu-sub">
-            <li class="menu-item">
-              <a href="/produit_conseil" class="menu-link">
-                <div data-i18n="Basic">Liste</div>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a href="/produit_conseil/form" class="menu-link">
-                <div data-i18n="Basic">insertion</div>
-              </a>
-            </li>
-          </ul>
-
+      </li> -->
 
 
 

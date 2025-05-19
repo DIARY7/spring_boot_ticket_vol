@@ -31,12 +31,20 @@ public class ReservationController {
     private final PlaceService placeService;
     private final VolService volService;
 
-    @GetMapping("")
-    public String getAllReservations(HttpSession session, Model model) {
-        Utilisateur utilisateur = (Utilisateur) session.getAttribute("utilisateur");
-        List<Reservation> reservations = reservationService.getReservationByIdUtilisateur(utilisateur);
-        model.addAttribute("reservations", reservations);
-        return "";
+    // @GetMapping("")
+    // public String getAllReservations(HttpSession session, Model model) {
+    //     Utilisateur utilisateur = (Utilisateur) session.getAttribute("utilisateur");
+    //     List<Reservation> reservations = reservationService.getReservationByIdUtilisateur(utilisateur);
+    //     model.addAttribute("page/reservation/liste", reservations);
+    //     return "template";
+    // }
+
+    @GetMapping("/")
+    public String getAllReservations(Model model) {
+        List<Reservation> reservations = reservationService.getAllReservation();
+        model.addAttribute("liste", reservations);
+        model.addAttribute("page", "pages/reservation/liste");
+        return "template";
     }
 
 //    @GetMapping("/formulaire/{idVol}")

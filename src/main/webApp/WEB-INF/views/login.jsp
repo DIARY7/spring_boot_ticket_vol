@@ -19,14 +19,14 @@
             
             <form id="login-form" method="post" action="/login" <% if(error!=null){ %> style="animation: animeshake 1s cubic-bezier(.36,.07,.19,.97) both;" <% } %> >
                 <div class="input-group">
-                    <input type="text" id="email" name="pseudo" value="jdupont" required>
+                    <input type="text" id="email" name="pseudo" value="smartin" required>
                     <label for="email">Pseudo</label>
                     <div class="line"></div>
                     <div class="error-message" id="email-error"></div>
                 </div>
                 
                 <div class="input-group">
-                    <input type="password" id="password" required value="password123" name="motDePasse">
+                    <input type="password" id="password" required value="adminpass" name="motDePasse">
                     <label for="password" >Mot de passe</label>
                     <div class="line"></div>
                     <button type="button" id="toggle-password" class="toggle-password">

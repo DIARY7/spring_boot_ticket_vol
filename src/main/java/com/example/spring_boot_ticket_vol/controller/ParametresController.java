@@ -27,7 +27,7 @@ public class ParametresController {
     @GetMapping("/")
     public String getParametresRepository(@ModelAttribute(name = "error", binding = false) String error,
             @ModelAttribute(name = "success", binding = false) String successMessage,Model model) {
-        if (error != null) {
+        if (error != null && !error.isEmpty() ) {
             model.addAttribute("errorMessage", error);
         }
         

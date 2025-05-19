@@ -6,7 +6,7 @@
     <%= request.getAttribute("successMessage") %>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
-<% } else if (request.getAttribute("errorMessage") != null) { %>
+<% } else if (request.getAttribute("errorMessage") != null ) { %>
   <div class="alert alert-danger alert-dismissible fade show" role="alert">
     <i class="bi bi-exclamation-triangle-fill me-2"></i>
     <%= request.getAttribute("errorMessage") %>
